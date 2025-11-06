@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Silat — IPSI</title>
+  <style>
+    /* Reset-ish */
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --accent:#0b6623; /* dark green */
+      --accent-2:#f2b705; /* warm gold */
+      --bg-1:#0f1720; /* deep slate */
+      --card:#ffffffee;
+      --muted:#e6eef2;
+      --maxw:1100px;
+      --radius:12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%}
+    body{
+      background: radial-gradient(1200px 400px at 10% 10%, rgba(11,102,35,0.12), transparent),
+                  linear-gradient(180deg,#071018 0%, #0f1720 100%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Subtle textured pattern using SVG data-URI */
+    body::before{
+      content:"";position:fixed;inset:0;opacity:0.04;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><g fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"><path d="M0 20 Q50 0 100 20 T200 20"/></g></svg>');background-repeat:repeat;mix-blend-mode:overlay;
+    }
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* Header / Nav */
+    header{position:sticky;top:14px;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:999px;backdrop-filter: blur(6px);}
+    .brand{display:flex;align-items:center;gap:12px}
+
+    /* IPSI simple svg logo */
+    .logo{width:56px;height:56px;display:inline-block;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),var(--accent));box-shadow:0 6px 18px rgba(2,6,23,0.5);}
+    .logo svg{display:block;width:100%;height:100%}
+
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.03);color:var(--card)}
+    .cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700}
+
+    /* Hero */
+    .hero{display:flex;gap:24px;align-items:center;padding:48px 12px}
+    .hero-left{flex:1}
+    .kicker{display:inline-block;background:rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;color:var(--accent-2);font-weight:700;margin-bottom:12px}
+    h1{font-size:32px;color:#fff;line-height:1.05;margin-bottom:12px}
+    p.lead{color:rgba(255,255,255,0.8);max-width:60ch}
+
+    .hero-visual{width:340px;height:220px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,rgba(11,102,35,0.12),rgba(242,183,5,0.06));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)}
+    .hero-visual .silhouette{width:80%;height:80%;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="none" stroke="%230b6623" stroke-width="6"><path d="M30 150 C50 80 80 40 100 40 C120 40 150 80 170 150"/></g></svg>') center/contain no-repeat}
+
+    main{padding:18px 12px 96px}
+    section{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;margin:18px 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:var(--card);color:#081219;padding:16px;border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,0.35)}
+
+    footer{padding:24px 12px;text-align:center;color:rgba(255,255,255,0.6)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero-visual{width:100%;height:160px}
+      h1{font-size:26px}
+    }
+
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <a class="logo" href="#home" aria-label="IPSI logo">
+            <!-- Simple IPSI-like badge (illustrative) -->
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#f2b705"/><stop offset="1" stop-color="#0b6623"/></linearGradient>
+              </defs>
+              <rect x="4" y="4" width="92" height="92" rx="12" fill="url(#g)" />
+              <circle cx="50" cy="36" r="14" fill="#fff" opacity="0.92" />
+              <path d="M24 72 Q50 52 76 72" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              <text x="50" y="82" font-size="14" text-anchor="middle" font-family="Arial" fill="#04221a" font-weight="700">IPSI</text>
+            </svg>
+          </a>
+          <div>
+            <div style="font-weight:800;color:#fff;">Silat Nusantara</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.6)">IPSI — Persatuan Pencak Silat</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#sejarah">Sejarah</a>
+          <a href="#jurus">Jurus</a>
+          <a href="#manfaat">Manfaat</a>
+          <a href="#kontak" class="cta">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-left">
+          <span class="kicker">Warisan Budaya</span>
+          <h1>Silat — Seni dan Olahraga Pencak</h1>
+          <p class="lead">Silat adalah perpaduan antara seni, olahraga, dan bela diri tradisional Indonesia. Di bawah naungan IPSI, pelestarian dan pengembangan silat terus dilakukan melalui pelatihan, kompetisi, dan pertunjukan budaya.</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="silhouette"></div>
+        </div>
+      </section>
+
+      <section id="sejarah">
+        <h2 style="color:#fff;margin-bottom:8px">Sejarah Singkat</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Asal-usul</h3>
+            <p>Silat berkembang di Nusantara sejak ratusan tahun lalu, menggabungkan teknik tempur, filosofi, dan ritus budaya setempat.</p>
+          </div>
+          <div class="card">
+            <h3>Peran IPSI</h3>
+            <p>IPSI (Ikatan Pencak Silat Indonesia) menjadi wadah nasional untuk menyatukan aliran, standarisasi olahraga, dan mengatur kompetisi.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="jurus">
+        <h2 style="color:#fff;margin-bottom:8px">Jurus & Teknik</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Dasar</h3>
+            <p>Gerakan dasar meliputi sikap pasang, langkah, tangkisan, pukulan, dan kuncian. Latihan berulang membentuk kelincahan dan keseimbangan.</p>
+          </div>
+          <div class="card">
+            <h3>Aliran</h3>
+            <p>Beragam aliran punya ciri khas masing-masing — teknik tangan, kuda-kuda, serta kombinasi serangan dan pertahanan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="manfaat">
+        <h2 style="color:#fff;margin-bottom:8px">Manfaat Latihan</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Fisik</h3>
+            <p>Meningkatkan kekuatan, kelenturan, keseimbangan, dan daya tahan kardiovaskular.</p>
+          </div>
+          <div class="card">
+            <h3>Psikologis & Sosial</h3>
+            <p>Disiplin, rasa saling menghormati, kontrol emosi, dan kebanggaan budaya.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak">
+        <h2 style="color:#fff;margin-bottom:8px">Kontak & Gabung</h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start">
+          <div>
+            <p>Ingin bergabung dengan latihan silat atau mencari perguruan terdekat? Hubungi IPSI daerah atau kirim pesan melalui form di samping.</p>
+            <ul style="color:rgba(255,255,255,0.9);margin-top:8px">
+              <li>Alamat: Kantor IPSI pusat (contoh)</li>
+              <li>Email: info@ipsi.example</li>
+              <li>Telepon: +62 812-3456-7890</li>
+            </ul>
+          </div>
+          <form style="background:var(--card);padding:12px;border-radius:10px;color:#081219">
+            <label style="display:block;font-weight:700;margin-bottom:6px">Nama</label>
+            <input type="text" placeholder="Nama lengkap" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px">
+            <label style="display:block;font-weight:700;margin-bottom:6px">Pesan</label>
+            <textarea placeholder="Tertarik gabung? Tulis pesan..." style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;min-height:88px"></textarea>
+            <button type="submit" style="margin-top:10px;background:var(--accent);color:#fff;padding:10px 12px;border-radius:8px;border:none;font-weight:700">Kirim</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small>© IPSI · Silat Nusantara — contoh halaman demo. Dibuat untuk kebutuhan presentasi.</small>
+    </footer>
+  </div>
+</body>
+</html>
